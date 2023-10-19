@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const HeaderMenu: React.FC = () => {
   return (
-    <nav className="p-8 flex justify-between text-white text-base">
+    <nav className="pt-8 pb-8 flex justify-between text-white text-base">
       <Link href="/">Pet Perdido</Link>
       <Link href="#">Adoção</Link>
       <Link href="#">Cat a Dog</Link>

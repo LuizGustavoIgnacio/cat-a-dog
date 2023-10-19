@@ -15,15 +15,16 @@ export const CarouselHome: React.FC = () => {
       stopOnHover={false}
       autoPlay
       infiniteLoop
+      className="mb-[-15px]"
     >
       <div className="flex justify-center">
-        <div className="w-2/4">
+        <div className="w-2/5 -z-0">
           <img src="/cao1.png" />
         </div>
       </div>
 
       <div className="flex justify-center">
-        <div className="w-2/4">
+        <div className="w-2/5 -z-0">
           <img src="/cao2.png" />
         </div>
       </div>
