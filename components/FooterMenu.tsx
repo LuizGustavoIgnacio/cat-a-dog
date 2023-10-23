@@ -5,7 +5,7 @@ import Link from 'next/link';
 export const FooterMenu: React.FC = () => {
   return (
     <div className="flex w-full h-[550px] bg-[#212528] z-50">
-      <div className="flex flex-col w-full mx-[100px] mt-[90px]">
+      <div className="flex flex-col w-full mx-[150px] mt-[90px]">
         <div className="flex flex-row h-4/6">
           <div className="flex w-3/6 items-baseline">
             <div className="flex items-center space-x-[25px]">
@@ -57,7 +57,7 @@ export const FooterMenu: React.FC = () => {
         <div className="h-px bg-[#2451C2] relative"></div>
 
         <div className="text-white font-bold text-[45px] w-full flex justify-center mt-[5px]">
-          <span>SOS</span>
+          <Link href="/">SOS</Link>
         </div>
       </div>
     </div>

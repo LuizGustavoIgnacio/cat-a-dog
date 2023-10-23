@@ -10,7 +10,7 @@ export default function Page() {
 
         <div className="flex justify-end w-4/6">
           <div className="flex flex-col justify-end h-[350px] absolute">
-            <div className="w-[150px] h-[150px] bg-green-800 rounded-full blur-[120px] absolute"></div>
+            <div className="w-[170px] h-[170px] bg-green-800 rounded-full blur-[120px] absolute"></div>
           </div>
         </div>
 
@@ -20,8 +20,8 @@ export default function Page() {
         </div>
 
         <div className="flex justify-end w-1/5">
-          <div className="flex flex-col justify-end h-[450px] absolute">
-            <div className="w-[80px] h-[80px] bg-blue-700 rounded-full blur-[130px] absolute"></div>
+          <div className="flex flex-col justify-end h-[550px] absolute">
+            <div className="w-[100px] h-[100px] bg-blue-700 rounded-full blur-[130px] absolute"></div>
           </div>
         </div>
 
@@ -46,7 +46,7 @@ export default function Page() {
 
             <div className="w-2/4 flex justify-center overflow-hidden items-center">
               <div className="rounded-full  h-[300px] w-[300px] shadow-[0_0_4.2em_0_rgba(13,13,22)]">
-                <img src="/images/animals/gato.png" />
+                <img src="/images/animals/gato.png" alt="gatinho" />
               </div>
             </div>
           </div>
