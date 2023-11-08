@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const UserMenu: React.FC = () => {
   return (
-    <section className="w-[350px] h-[100vh] bg-[#0D0D1A] border-r-[6px] border-[#737180] py-11 pl-9 relative">
+    <section className="w-[350px] bg-[#0D0D1A] border-r-[6px] border-[#737180] py-11 pl-9 relative">
       <div className="flex flex-col text-white text-center items-center">
         <h1 className="font-bold text-2xl mb-5">Bem vindo(a) a SOS!</h1>
 
@@ -37,6 +37,15 @@ export const UserMenu: React.FC = () => {
                   <img src="/images/vectors/menu-user-cadastrar.png" />
                 </div>
                 CADASTRAR
+              </div>
+            </Link>
+
+            <Link href="/cadastrar-adocao">
+              <div className="flex space-x-3">
+                <div className="w-1/6">
+                  <img src="/images/vectors/menu-user-adocao.png" />
+                </div>
+                ADOÇÃO
               </div>
             </Link>
 

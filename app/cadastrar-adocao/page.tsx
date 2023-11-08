@@ -1,5 +1,4 @@
-import { FormAdopt } from '~/components/FormAdopt';
-import { RegistrationTypeMenu } from '~/components/RegistrationTypeMenu';
+import { FormAnimalAdoption } from '~/components/FormAnimalAdoption';
 import { UserMenu } from '~/components/UserMenu';
 
 export default function Page() {
@@ -8,10 +7,8 @@ export default function Page() {
       <UserMenu />
 
       <div className="bg-[#23222F] w-full h-[100vh] py-[45px] px-[40px]">
-        <div className="flex flex-col space-y-24">
-          <RegistrationTypeMenu />
-
-          <FormAdopt />
+        <div className="flex md:justify-center">
+          <FormAnimalAdoption />
         </div>
       </div>
     </div>
