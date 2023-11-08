@@ -30,6 +30,20 @@ export const FormAnimalAdoption: React.FC = () => {
         </div>
 
         <div className="flex space-x-2 items-center">
+          <label htmlFor="adoption-species">Espécie</label>
+
+          <select
+            id="adoption-species"
+            name="adoption-species"
+            className="w-full bg-[#4E4D61] rounded-[5px] h-10 px-3"
+          >
+            <option value="cat">Gato</option>
+            <option value="dog">Cachorro</option>
+            <option value="other">Outro</option>
+          </select>
+        </div>
+
+        <div className="flex space-x-2 items-center">
           <label htmlFor="aadoption-animal-gender">Sexo</label>
 
           <select
