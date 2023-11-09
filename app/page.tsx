@@ -5,7 +5,7 @@ import { HeaderMenu } from '~/components/HeaderMenu';
 export default function Page() {
   return (
     <div className="flex flex-col">
-      <div className="mx-[150px]">
+      <div className="md:mx-[150px]">
         <HeaderMenu />
 
         <div className="flex justify-end w-4/6">
