@@ -1,38 +1,29 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-interface Record {
-  animalName: string;
-  microchip: string;
-  adopterName: string;
-  cpf: string;
-}
+import userService, { User } from '~/services/user-service';
 
 export default function RecordsTable() {
-  const [records, setRecords] = useState<Record[]>();
+  const [users, setUsers] = useState<User[]>();
 
   useEffect(() => {
-    setRecords([
-      {
-        animalName: 'João',
-        microchip: '4566456',
-        adopterName: 'Juan',
-        cpf: '123456789',
-      },
-      {
-        animalName: 'Chechelas',
-        microchip: '0938763',
-        adopterName: 'Luiz',
-        cpf: '123456789',
-      },
-    ]);
+    userService
+      .getAllUsers()
+      .then((res) => {
+        setUsers(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
     <div>
       <div>
-        {records?.map((record) => (
-          <div key={record.microchip}>{record.animalName}</div>
+        {users?.map((user) => (
+          <div className="text-cyan-50" key={user.id}>
+            {user.name} {user.password} {user.email}
+          </div>
         ))}
       </div>
     </div>
