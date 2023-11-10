@@ -11,9 +11,11 @@ class UserService {
   getAllUsers() {
     const controller = new AbortController();
 
-    return apiClient.get<User[]>('/users', {
+    const request = apiClient.get<User[]>('/users', {
       signal: controller.signal,
     });
+
+    return { request, cancel: () => controller.abort() };
   }
 }
 
