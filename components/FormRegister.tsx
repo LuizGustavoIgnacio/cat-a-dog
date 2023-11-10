@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import Switch from 'react-switch';
 
 import { FormAdopt } from './FormAdopt';
@@ -9,8 +9,13 @@ import { SearchBar } from './SearchBar';
 export const FormRegister: React.FC = () => {
   const [show, setShow] = useState(false);
 
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    console.log('Submitted');
+  };
+
   return (
-    <form action="#" id="full_register_adopt_animal">
+    <form action="#" id="full_register_adopt_animal" onSubmit={handleSubmit}>
       <div className="flex flex-col text-white text-center">
         <label className="font-bold mb-5 text-[#737180] uppercase">
           Dados do Animal

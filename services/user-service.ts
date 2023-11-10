@@ -1,4 +1,4 @@
-import apiClient from './api-client';
+import create from './http-service';
 
 export interface User {
   id: number;
@@ -7,17 +7,4 @@ export interface User {
   password: string;
 }
 
-class UserService {
-  getAllUsers() {
-    const controller = new AbortController();
-
-    const request = apiClient.get<User[]>('/users', {
-      signal: controller.signal,
-    });
-
-    return { request, cancel: () => controller.abort() };
-  }
-}
-
-// eslint-disable-next-line import/no-anonymous-default-export
-export default new UserService();
+export default create('/users');
