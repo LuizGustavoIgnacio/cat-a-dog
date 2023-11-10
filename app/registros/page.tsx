@@ -1,13 +1,9 @@
 'use client';
 
-import { RecordsTable } from '~/components/RecordsTable';
-import { columns } from '~/components/tables/AdoptedAnimalColumns';
+import RecordsTable from '~/components/RecordsTable';
 import { UserMenu } from '~/components/UserMenu';
-import { useAnimals } from '~/hooks/useAnimals';
 
 export default function Page() {
-  const { animals } = useAnimals();
-
   return (
     <div className="flex">
       <UserMenu />
@@ -15,7 +11,7 @@ export default function Page() {
       <div className="bg-[#23222F] w-full h-[100vh] py-[45px] px-[40px]">
         <div className="flex flex-col space-y-24">
           <div className="flex flex-col space-y-5">
-            <RecordsTable data={animals} columns={columns} />
+            <RecordsTable />
           </div>
         </div>
       </div>
