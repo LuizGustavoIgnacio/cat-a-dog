@@ -1,72 +1,80 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable import-helpers/order-imports */
 'use client';
 
-import { useAnimals } from '~/hooks/useAnimals';
-import Spinner from './Spinner';
-import { Button } from './ui/button';
+import {
+  ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from '@tanstack/react-table';
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-} from './ui/table';
+} from '~/components/ui/table';
 
-export default function RecordsTable() {
-  const { animals, error, isLoading } = useAnimals();
+interface DataTableProps<TData, TValue> {
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
+}
+
+export function RecordsTable<TData, TValue>({
+  columns,
+  data,
+}: DataTableProps<TData, TValue>) {
+  const table = useReactTable({
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
 
   return (
-    <>
-      {error && <p>{error}</p>}
-      {isLoading && <Spinner />}
+    <div className="rounded-md border">
       <Table>
-        <TableCaption className="text-white">
-          Lista de Animais Adotados.
-        </TableCaption>
         <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px] text-slate-400">
-              Microchip
-            </TableHead>
-            <TableHead className="text-slate-400">Nome do Animal</TableHead>
-            <TableHead className="text-slate-400">Raça</TableHead>
-            <TableHead className="text-slate-400">Nome do Adotante</TableHead>
-            <TableHead className="text-slate-400">CPF do Adotante</TableHead>
-            <TableHead className="text-right text-slate-400">
-              Atualizar Registro
-            </TableHead>
-            <TableHead className="text-right text-slate-400">
-              Excluir Registro
-            </TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {animals?.map((animal) => (
-            <TableRow key={animal.id}>
-              <TableCell className="text-slate-100">
-                {animal.microchip}
-              </TableCell>
-              <TableCell className="text-slate-100">{animal.name}</TableCell>
-              <TableCell className="text-slate-100">{animal.race}</TableCell>
-              <TableCell className="text-slate-100">
-                {animal.adopter.firstName} {animal.adopter.lastName}
-              </TableCell>
-              <TableCell className="text-slate-100">
-                {animal.adopter.cpf}
-              </TableCell>
-              <TableCell className="text-right">
-                <Button variant={'secondary'}>Atualizar</Button>
-              </TableCell>
-              <TableCell className="text-right">
-                <Button variant={'destructive'}>Excluir</Button>
-              </TableCell>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) => {
+                return (
+                  <TableHead key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext(),
+                      )}
+                  </TableHead>
+                );
+              })}
             </TableRow>
           ))}
+        </TableHeader>
+        <TableBody>
+          {table.getRowModel().rows?.length ? (
+            table.getRowModel().rows.map((row) => (
+              <TableRow
+                key={row.id}
+                data-state={row.getIsSelected() && 'selected'}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={columns.length} className="h-24 text-center">
+                No results.
+              </TableCell>
+            </TableRow>
+          )}
         </TableBody>
       </Table>
-    </>
+    </div>
   );
 }

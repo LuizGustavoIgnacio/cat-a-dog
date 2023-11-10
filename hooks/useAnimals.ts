@@ -7,7 +7,7 @@ import adoptedAnimalService, {
 } from '~/services/adopted-animal-service';
 
 export const useAnimals = () => {
-  const [animals, setAnimals] = useState<AdoptedAnimal[]>();
+  const [animals, setAnimals] = useState<AdoptedAnimal[]>([]);
   const [error, setError] = useState('');
   const [isLoading, setLoading] = useState(false);
 

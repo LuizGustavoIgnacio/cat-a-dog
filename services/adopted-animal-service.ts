@@ -34,20 +34,20 @@ export const columns: ColumnDef<AdoptedAnimal>[] = [
     header: 'Nome Do Animal',
   },
   {
-    accessorKey: '',
-    header: '',
+    accessorKey: 'race',
+    header: 'Raça',
   },
   {
-    accessorKey: '',
-    header: '',
+    accessorKey: 'adopter.fullName',
+    header: 'Nome Do Adotante',
   },
   {
-    accessorKey: '',
-    header: '',
+    accessorKey: 'adopter.cpf',
+    header: 'CPF do Adotante',
   },
   {
-    accessorKey: '',
-    header: '',
+    accessorKey: 'adopter.contact',
+    header: 'Contato',
   },
 ];
 
