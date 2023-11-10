@@ -10,11 +10,11 @@ export interface AdoptedAnimal {
   color: string;
   species: string;
   ccz: boolean;
-  dewormed: Date;
-  vaccinated: Date;
-  neutered: Date;
-  age: Date;
-  date: Date;
+  dewormed: string;
+  vaccinated: string;
+  neutered: string;
+  age: string;
+  date: string;
   adopter: Adopter;
 }
 

@@ -28,7 +28,8 @@ export const FormAnimal: React.FC = () => {
             form="animal_form"
             className="w-full bg-[#4E4D61] rounded-[5px] h-10 px-3"
           >
-            <option value="little-dog">doguinho</option>
+            <option value="cachorro">Cachorro</option>
+            <option value="gato">Gato</option>
           </select>
         </div>
 
