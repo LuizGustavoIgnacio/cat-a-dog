@@ -1,9 +1,9 @@
 'use client';
 
 import { RecordsTable } from '~/components/RecordsTable';
+import { columns } from '~/components/tables/AdoptedAnimalColumns';
 import { UserMenu } from '~/components/UserMenu';
 import { useAnimals } from '~/hooks/useAnimals';
-import { columns } from '~/services/adopted-animal-service';
 
 export default function Page() {
   const { animals } = useAnimals();
