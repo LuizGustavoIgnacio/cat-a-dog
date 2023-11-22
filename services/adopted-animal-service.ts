@@ -19,4 +19,4 @@ export interface AdoptedAnimal {
   adopterId: number;
 }
 
-export default create('/animals');
+export default create('/Animal/Paged/0/25');

@@ -87,7 +87,7 @@ export default function RecordsTable() {
         </TableBody>
       </Table>
 
-      <div className="flex flex-col space-y-3">
+      {/* <div className="flex flex-col space-y-3">
         <div className="flex space-x-5 text-stone-950">
           <button
             disabled={!table.getCanPreviousPage()}
@@ -134,7 +134,7 @@ export default function RecordsTable() {
             Ultima Página
           </button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

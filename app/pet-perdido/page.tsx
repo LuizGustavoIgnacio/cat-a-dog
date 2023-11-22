@@ -1,9 +1,9 @@
+import Link from 'next/link';
 import { ButtonLoad } from '~/components/ButtonLoad';
 import { CardLostPet } from '~/components/CardLostPet';
 import { FooterMenu } from '~/components/FooterMenu';
 import { HeaderMenu } from '~/components/HeaderMenu';
 import { SearchBar } from '~/components/SearchBar';
-import Link from 'next/link';
 
 export default function Page() {
   return (

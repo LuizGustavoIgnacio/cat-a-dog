@@ -1,20 +1,11 @@
 /* eslint-disable import-helpers/order-imports */
 import { ColumnDef } from '@tanstack/react-table';
-import { DateTime } from 'luxon';
 import { AdoptedAnimal } from '~/services/adopted-animal-service';
 
 export const columns: ColumnDef<AdoptedAnimal>[] = [
   {
     accessorKey: 'id',
     header: 'Id',
-  },
-  {
-    accessorKey: 'date',
-    header: 'Dia da Adoção',
-    cell: (info) =>
-      DateTime.fromISO(info.getValue() as string).toLocaleString(
-        DateTime.DATE_MED,
-      ),
   },
   {
     accessorKey: 'name',
@@ -33,15 +24,7 @@ export const columns: ColumnDef<AdoptedAnimal>[] = [
     header: 'Raça',
   },
   {
-    accessorKey: 'adopter.fullName',
-    header: 'Nome do Adotante',
-  },
-  {
-    accessorKey: 'adopter.cpf',
-    header: 'CPF do Adotante',
-  },
-  {
-    accessorKey: 'adopter.contact',
-    header: 'Contato',
+    accessorKey: 'color',
+    header: 'Cor',
   },
 ];

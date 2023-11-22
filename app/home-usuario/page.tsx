@@ -1,5 +1,5 @@
-import { UserMenu } from '~/components/UserMenu';
 import Link from 'next/link';
+import { UserMenu } from '~/components/UserMenu';
 
 export default function Page() {
   return (
