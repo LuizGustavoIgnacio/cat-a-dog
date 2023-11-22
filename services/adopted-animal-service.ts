@@ -1,21 +1,22 @@
-import { Adopter } from './adopter-service';
 import create from './http-service';
 
 export interface AdoptedAnimal {
   id: number;
   microchip: string;
   name: string;
-  race: string;
-  sex: string;
-  color: string;
   species: string;
+  race: string;
+  color: string;
+  sex: string;
   ccz: boolean;
-  dewormed: string;
-  vaccinated: string;
-  neutered: string;
-  age: string;
-  date: string;
-  adopter: Adopter;
+  dates: {
+    dewormed: string;
+    vaccinated: string;
+    neutered: string;
+    age: string;
+    adoption: string;
+  };
+  adopterId: number;
 }
 
 export default create('/animals');
