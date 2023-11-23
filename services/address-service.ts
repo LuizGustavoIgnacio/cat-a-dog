@@ -1,4 +1,4 @@
-import create from './http-service';
+import create from "./http-service";
 
 export interface Address {
   id: number;
@@ -10,4 +10,4 @@ export interface Address {
   state: string;
 }
 
-export default create('/address');
+export default create("/Address");

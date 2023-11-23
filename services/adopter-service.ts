@@ -1,16 +1,14 @@
-import { Address } from './address-service';
-import { AdoptedAnimal } from './adopted-animal-service';
-import create from './http-service';
+import create from "./http-service";
 
 export interface Adopter {
   id: number;
-  fullName: string;
+  firstName: string;
+  lastName: string;
   profession: string;
   cpf: string;
   rg: string;
-  animals: AdoptedAnimal[];
-  address: Address;
-  contact: string;
+  phoneNumber: string;
+  addressId: number;
 }
 
-export default create('/adopters');
+export default create("/Adopter");
