@@ -1,34 +1,99 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import Switch from "react-switch";
-import addressService from "~/services/address-service";
+'use client';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+
+import addressService, { Address } from '~/services/address-service';
+import adoptedAnimalService from '~/services/adopted-animal-service';
+import adopterService from '~/services/adopter-service';
+
+interface FormType {
+  adopt: {
+    name: string;
+    cpf: string;
+    rg: string;
+    zip: string;
+    cel: string;
+    city: string;
+    district: string;
+    profession: string;
+    state: string;
+    street: string;
+    number: string;
+  };
+  species: string;
+  sex: string;
+  race: string;
+  name: string;
+  microchip: string;
+  color: string;
+  ccz: boolean;
+  dates: {
+    age: string;
+    dewormed: string;
+    neutered: string;
+    vaccinated: string;
+    adoption: string;
+  };
+}
 
 export const FormRegister: React.FC = () => {
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
   const { register, handleSubmit } = useForm();
 
-  const handleSubmitedData = (data: any) => {
+  const handleSubmitedData = async (data: FormType) => {
     const address = {
+      id: 0,
       street: data.adopt.street,
-      number: data.adopt.housenumber,
-      district: data.adopt.nbhood,
+      number: Number(data.adopt.number),
+      district: data.adopt.district,
       state: data.adopt.state,
-      zip: data.adopt.cep,
+      zip: data.adopt.zip,
       city: data.adopt.city,
     };
 
-    console.log(address);
+    const responseAddress = await addressService.create<Address>(address);
 
-    addressService.create(address);
+    const adopter = {
+      id: 0,
+      firstName: data.adopt.name.split(' ').slice(0, -1).join(' '),
+      lastName: data.adopt.name.split(' ').slice(-1).join(' '),
+      profession: data.adopt.profession,
+      cpf: data.adopt.cpf,
+      rg: data.adopt.rg,
+      phoneNumber: data.adopt.cel,
+      addressId: Number(responseAddress.data.id),
+    };
+
+    const responseAdopter = await adopterService.create(adopter);
+
+    const animal = {
+      id: 0,
+      microchip: data.microchip,
+      name: data.name,
+      species: data.species,
+      race: data.race,
+      color: data.color,
+      sex: data.sex === 'M' ? 1 : 0,
+      ccz: data.ccz,
+      dates: {
+        dewormed: data.dates.dewormed,
+        vaccinated: data.dates.vaccinated,
+        neutered: data.dates.neutered,
+        age: data.dates.age,
+        adoption: data.dates.adoption,
+      },
+      adopterId: Number(responseAdopter.data.id),
+    };
+
+    adoptedAnimalService.create(animal).then((res) => console.log(res.data));
   };
 
   return (
     <form
       action="#"
       id="full_register_adopt_animal"
-      onSubmit={handleSubmit((data) => handleSubmitedData(data))}
+      onSubmit={handleSubmit((data) => handleSubmitedData(data as FormType))}
     >
       <div className="flex flex-col text-white text-center">
         <label className="font-bold mb-5 text-[#737180] uppercase">
@@ -41,7 +106,7 @@ export const FormRegister: React.FC = () => {
             </label>
 
             <input
-              {...register("microchip")}
+              {...register('microchip')}
               type="text"
               id="microchip"
               name="microchip"
@@ -54,7 +119,7 @@ export const FormRegister: React.FC = () => {
             </label>
 
             <input
-              {...register("name")}
+              {...register('name')}
               type="text"
               id="name"
               name="name"
@@ -69,7 +134,7 @@ export const FormRegister: React.FC = () => {
               </label>
 
               <select
-                {...register("species")}
+                {...register('species')}
                 name="species"
                 id="species"
                 form="animal_form"
@@ -84,7 +149,7 @@ export const FormRegister: React.FC = () => {
               <label htmlFor="race">Raça</label>
 
               <input
-                {...register("race")}
+                {...register('race')}
                 type="text"
                 id="race"
                 name="race"
@@ -96,7 +161,7 @@ export const FormRegister: React.FC = () => {
               <label htmlFor="color">Cor</label>
 
               <input
-                {...register("color")}
+                {...register('color')}
                 type="text"
                 id="color"
                 name="color"
@@ -110,7 +175,7 @@ export const FormRegister: React.FC = () => {
               <label htmlFor="dates.age">Data de Nascimento</label>
 
               <input
-                {...register("dates.age")}
+                {...register('dates.age')}
                 type="date"
                 id="dates.age"
                 name="dates.age"
@@ -122,7 +187,7 @@ export const FormRegister: React.FC = () => {
               <label htmlFor="sex">Sexo</label>
 
               <select
-                {...register("sex")}
+                {...register('sex')}
                 name="sex"
                 id="sex"
                 form="animal_form"
@@ -137,7 +202,7 @@ export const FormRegister: React.FC = () => {
               <label htmlFor="dates.dewormed">Vermifugado</label>
 
               <input
-                {...register("dates.dewormed")}
+                {...register('dates.dewormed')}
                 type="date"
                 id="dates.dewormed"
                 name="dates.dewormed"
@@ -153,7 +218,7 @@ export const FormRegister: React.FC = () => {
               </label>
 
               <input
-                {...register("dates.vaccinated")}
+                {...register('dates.vaccinated')}
                 type="date"
                 id="dates.vaccinated"
                 name="dates.vaccinated"
@@ -167,7 +232,7 @@ export const FormRegister: React.FC = () => {
               </label>
 
               <input
-                {...register("ccz")}
+                {...register('ccz')}
                 type="checkbox"
                 name="czz"
                 id="czz"
@@ -183,7 +248,7 @@ export const FormRegister: React.FC = () => {
                 Castrado<span className="text-red-500">*</span>
               </label>
               <input
-                {...register("dates.neutered")}
+                {...register('dates.neutered')}
                 type="date"
                 id="dates.neutered"
                 name="dates.neutered"
@@ -204,7 +269,7 @@ export const FormRegister: React.FC = () => {
             </label>
 
             <input
-              {...register("adopt.name")}
+              {...register('adopt.name')}
               type="text"
               id="adopt.name"
               name="adopt.name"
@@ -219,7 +284,7 @@ export const FormRegister: React.FC = () => {
               </label>
 
               <input
-                {...register("adopt.cpf")}
+                {...register('adopt.cpf')}
                 type="text"
                 id="adopt.cpf"
                 name="adopt.cpf"
@@ -232,7 +297,7 @@ export const FormRegister: React.FC = () => {
               </label>
 
               <input
-                {...register("adopt.rg")}
+                {...register('adopt.rg')}
                 type="text"
                 id="adopt.rg"
                 name="adopt.rg"
@@ -243,15 +308,15 @@ export const FormRegister: React.FC = () => {
 
           <div className="flex space-x-5">
             <div className="flex w-1/3 space-x-3 items-center">
-              <label htmlFor="adopt.cep">
+              <label htmlFor="adopt.zip">
                 CEP<span className="text-red-500">*</span>
               </label>
 
               <input
-                {...register("adopt.cep")}
+                {...register('adopt.zip')}
                 type="text"
-                id="adopt.cep"
-                name="adopt.cep"
+                id="adopt.zip"
+                name="adopt.zip"
                 className="w-full bg-[#4E4D61] rounded-[5px] h-10 px-3"
               />
             </div>
@@ -262,7 +327,7 @@ export const FormRegister: React.FC = () => {
               </label>
 
               <input
-                {...register("adopt.cel")}
+                {...register('adopt.cel')}
                 type="tel"
                 pattern="+55[0-9]{2}[0-9]{5}-[0-9]{4}"
                 id="adopt.cel"
@@ -277,7 +342,7 @@ export const FormRegister: React.FC = () => {
               <label htmlFor="adopt.street">Rua</label>
 
               <input
-                {...register("adopt.street")}
+                {...register('adopt.street')}
                 type="text"
                 id="adopt.street"
                 name="adopt.street"
@@ -286,25 +351,25 @@ export const FormRegister: React.FC = () => {
             </div>
 
             <div className="flex w-3/12 space-x-3 items-center">
-              <label htmlFor="adopt.housenumber">N</label>
+              <label htmlFor="adopt.number">N</label>
 
               <input
-                {...register("adopt.housenumber")}
+                {...register('adopt.number')}
                 type="number"
-                id="adopt.housenumber"
-                name="adopt.housenumber"
+                id="adopt.number"
+                name="adopt.number"
                 className="w-full bg-[#4E4D61] rounded-[5px] h-10 px-3"
               />
             </div>
 
             <div className="flex w-4/12 space-x-3 items-center">
-              <label htmlFor="adopt.nbhood">Bairro</label>
+              <label htmlFor="adopt.district">Bairro</label>
 
               <input
-                {...register("adopt.nbhood")}
+                {...register('adopt.district')}
                 type="text"
-                id="adopt.nbhood"
-                name="adopt.nbhood"
+                id="adopt.district"
+                name="adopt.district"
                 className="w-full bg-[#4E4D61] rounded-[5px] h-10 px-3"
               />
             </div>
@@ -315,7 +380,7 @@ export const FormRegister: React.FC = () => {
               <label htmlFor="adopt.city">Cidade</label>
 
               <input
-                {...register("adopt.city")}
+                {...register('adopt.city')}
                 type="text"
                 id="adopt.city"
                 name="adopt.city"
@@ -327,12 +392,12 @@ export const FormRegister: React.FC = () => {
               <label htmlFor="adopt.state">Estado</label>
 
               <select
-                {...register("adopt.state")}
+                {...register('adopt.state')}
                 id="adopt.state"
                 name="adopt.state"
                 className="w-full bg-[#4E4D61] rounded-[5px] h-10 px-1"
               >
-                <option value="sao-paulo">SP</option>
+                <option value="SP">SP</option>
               </select>
             </div>
           </div>
@@ -342,7 +407,7 @@ export const FormRegister: React.FC = () => {
               <label htmlFor="adopt.profession">Profissão</label>
 
               <input
-                {...register("adopt.profession")}
+                {...register('adopt.profession')}
                 type="text"
                 id="adopt.profession"
                 name="adopt.profession"

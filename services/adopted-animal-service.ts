@@ -19,4 +19,5 @@ export interface AdoptedAnimal {
   adopterId: number;
 }
 
-export default create('/Animal/Paged/0/25');
+export default create('/Animal');
+export const getAnimal = create('Animal/Paged/0/30');

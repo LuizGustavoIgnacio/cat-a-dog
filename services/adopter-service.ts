@@ -1,4 +1,4 @@
-import create from "./http-service";
+import create from './http-service';
 
 export interface Adopter {
   id: number;
@@ -11,4 +11,4 @@ export interface Adopter {
   addressId: number;
 }
 
-export default create("/Adopter");
+export default create('/Adopter');

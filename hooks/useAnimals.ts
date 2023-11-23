@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { CanceledError } from 'axios';
 // eslint-disable-next-line import-helpers/order-imports
-import adoptedAnimalService, {
-  AdoptedAnimal,
-} from '~/services/adopted-animal-service';
+import { AdoptedAnimal, getAnimal } from '~/services/adopted-animal-service';
 
 export const useAnimals = () => {
   const [animals, setAnimals] = useState<AdoptedAnimal[]>([]);
@@ -12,7 +10,7 @@ export const useAnimals = () => {
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-    const { request, cancel } = adoptedAnimalService.getAll<AdoptedAnimal>();
+    const { request, cancel } = getAnimal.getAll<AdoptedAnimal>();
     setLoading(true);
     request
       .then((res) => {
