@@ -5,7 +5,7 @@ import Link from 'next/link';
 export const HeaderMenu: React.FC = () => {
   return (
     <div className="top-0 right-0 left-0 h-[50px] md:h-36">
-      <span>
+      <span className="md:invisible md:absolute">
         <img src="/images/vectors/header-responsive-icon.png" />
       </span>
       <nav
