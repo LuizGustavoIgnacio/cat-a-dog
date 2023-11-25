@@ -63,19 +63,21 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="h-[993px] bg-black/30 rounded-3xl relative pt-6 px-12 mb-28">
-          <SearchBar />
+        <div className="flex justify-center">
+          <div className="h-[993px] bg-black/30 rounded-3xl relative pt-6 px-12 mb-28">
+            <SearchBar />
 
-          <div className="flex justify-center">
-            <div className="grid grid-flow-row grid-rows-2 grid-cols-4 gap-28 mb-4">
-              {animals.map((animalInfo, index) => (
-                <CardAdoptPet key={index} animalInfo={animalInfo} />
-              ))}
+            <div className="flex justify-center">
+              <div className="grid grid-flow-row grid-rows-2 grid-cols-4 gap-28 mb-4">
+                {animals.map((animalInfo, index) => (
+                  <CardAdoptPet key={index} animalInfo={animalInfo} />
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div className="flex justify-center">
-            <ButtonLoad />
+            <div className="flex justify-center">
+              <ButtonLoad />
+            </div>
           </div>
         </div>
       </div>
