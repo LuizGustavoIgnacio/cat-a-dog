@@ -1,10 +1,45 @@
 import { ButtonLoad } from '~/components/ButtonLoad';
-import { CardAdoptPet } from '~/components/CardAdoptPet';
+import { AnimalType, CardAdoptPet } from '~/components/CardAdoptPet';
 import { FooterMenu } from '~/components/FooterMenu';
 import { HeaderMenu } from '~/components/HeaderMenu';
 import { SearchBar } from '~/components/SearchBar';
 
 export default function Page() {
+  const animals: AnimalType[] = [
+    {
+      name: 'Brutus',
+      breed: 'Pitbull',
+    },
+    {
+      name: 'Brutus',
+      breed: 'Pitbull',
+    },
+    {
+      name: 'Brutus',
+      breed: 'Pitbull',
+    },
+    {
+      name: 'Brutus',
+      breed: 'Pitbull',
+    },
+    {
+      name: 'Brutus',
+      breed: 'Pitbull',
+    },
+    {
+      name: 'Brutus',
+      breed: 'Pitbull',
+    },
+    {
+      name: 'Brutus',
+      breed: 'Pitbull',
+    },
+    {
+      name: 'Brutus',
+      breed: 'Pitbull',
+    },
+  ];
+
   return (
     <div className="flex flex-col">
       <div className="mx-[150px]">
@@ -33,21 +68,9 @@ export default function Page() {
 
           <div className="flex justify-center">
             <div className="grid grid-flow-row grid-rows-2 grid-cols-4 gap-28 mb-4">
-              <CardAdoptPet />
-
-              <CardAdoptPet />
-
-              <CardAdoptPet />
-
-              <CardAdoptPet />
-
-              <CardAdoptPet />
-
-              <CardAdoptPet />
-
-              <CardAdoptPet />
-
-              <CardAdoptPet />
+              {animals.map((animalInfo, index) => (
+                <CardAdoptPet key={index} animalInfo={animalInfo} />
+              ))}
             </div>
           </div>
 
