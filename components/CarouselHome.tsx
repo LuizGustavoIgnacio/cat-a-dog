@@ -18,13 +18,13 @@ export const CarouselHome: React.FC = () => {
       className="mb-[-15px]"
     >
       <div className="flex justify-center">
-        <div className="w-2/5 -z-0">
+        <div className="w-2/5 -z-0 min-w-[60%]">
           <img src="/cao1.png" />
         </div>
       </div>
 
       <div className="flex justify-center">
-        <div className="w-2/5 -z-0">
+        <div className="w-2/5 -z-0 min-w-[60%]">
           <img src="/cao2.png" />
         </div>
       </div>
