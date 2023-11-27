@@ -65,7 +65,10 @@ export const HeaderMenu: React.FC = () => {
                 </li>
 
                 <li className="pb-2 mb-3 text-lg lg:text-xl text-white py-2 px-6 text-center  border-b-2 md:border-b-0  hover:bg-purple-600  border-[#47CE95]  md:hover:text-[#47CE95] md:hover:bg-transparent">
-                  <Link href="#" onClick={() => setNavbar(!navbar)}>
+                  <Link
+                    href="/app-cat-a-dog"
+                    onClick={() => setNavbar(!navbar)}
+                  >
                     Cat a Dog
                   </Link>
                 </li>

@@ -1,0 +1,31 @@
+<svg width="60" height="67" viewBox="0 0 60 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="60" height="67" fill="#202021"/>
+<g id="Cat a Dog" clip-path="url(#clip0_0_1)">
+<rect width="1440" height="1409" transform="translate(-170 -700)" fill="#111122"/>
+<g id="Ellipse 17" filter="url(#filter0_f_0_1)">
+<circle cx="-170" cy="101" r="95" fill="#4285F4" fill-opacity="0.3"/>
+</g>
+<g id="Button Google">
+<g id="logos:google-play-icon" clip-path="url(#clip1_0_1)">
+<path id="Vector" d="M28.0203 31.9414L0.248535 61.3326C0.56041 62.4491 1.12086 63.4787 1.88704 64.3428C2.65322 65.2069 3.60485 65.8826 4.66917 66.3183C5.7335 66.7539 6.88235 66.938 8.02791 66.8565C9.17346 66.7749 10.2854 66.4298 11.2787 65.8477L42.5272 47.8704L28.0203 31.9414Z" fill="#EA4335"/>
+<path id="Vector_2" d="M56.1023 26.9454L42.5894 19.127L27.3789 32.6098L42.6512 47.828L56.0612 40.0935C57.2492 39.4651 58.2443 38.5203 58.9385 37.3614C59.6328 36.2026 59.9999 34.8738 59.9999 33.5193C59.9999 32.1647 59.6328 30.836 58.9385 29.6771C58.2443 28.5183 57.2492 27.5735 56.0612 26.9451H56.1027L56.1023 26.9454Z" fill="#FBBC04"/>
+<path id="Vector_3" d="M0.248515 5.56055C0.0806501 6.18742 -0.00291276 6.83427 7.74924e-05 7.48366V59.4091C0.00181792 60.0583 0.0853005 60.7046 0.248515 61.3325L28.9723 32.6939L0.248515 5.56055Z" fill="#4285F4"/>
+<path id="Vector_4" d="M28.2273 33.4465L42.5893 19.1272L11.3823 1.0661C10.2081 0.371491 8.87273 0.00364183 7.51205 1.45199e-05C4.13541 -0.00661446 1.16682 2.25718 0.248535 5.53971L28.2273 33.4465Z" fill="#34A853"/>
+</g>
+<rect id="Rectangle 44" x="-39.5" y="-33.5" width="599" height="134" rx="4.5" stroke="white"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_0_1" x="-485" y="-214" width="630" height="630" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="110" result="effect1_foregroundBlur_0_1"/>
+</filter>
+<clipPath id="clip0_0_1">
+<rect width="1440" height="1409" fill="white" transform="translate(-170 -700)"/>
+</clipPath>
+<clipPath id="clip1_0_1">
+<rect width="60" height="67" fill="white"/>
+</clipPath>
+</defs>
+</svg>
