@@ -15,17 +15,19 @@ export const CarouselHome: React.FC = () => {
       stopOnHover={false}
       autoPlay
       infiniteLoop
-      className="mb-[-15px]"
+      showIndicators={false}
+      thumbWidth={0}
+      className=""
     >
       <div className="flex justify-center">
-        <div className="w-2/5 -z-0 min-w-[60%]">
-          <img src="/cao1.png" />
+        <div className="w-[350px] -z-0 min-w-[60%]">
+          <img src="/cao.png" className="relative" />
         </div>
       </div>
 
       <div className="flex justify-center">
-        <div className="w-2/5 -z-0 min-w-[60%]">
-          <img src="/cao2.png" />
+        <div className="w-[350px] -z-0 min-w-[60%]">
+          <img src="/cao1.png" className="relative" />
         </div>
       </div>
     </Carousel>
